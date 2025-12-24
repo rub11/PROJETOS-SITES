@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Ruby | Sites Personalizados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #c62828;
+            --dark-red: #8e0000;
+            --light-red: #ff5f52;
+            --soft-red: #ffebee;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #666666;
+            --shadow: 0 4px 12px rgba(198, 40, 40, 0.15);
+            --shadow-lg: 0 10px 30px rgba(198, 40, 40, 0.2);
+            --radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--dark-red);
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-red);
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--dark-red);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--soft-red);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+        }
+
+        .btn-small {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            border-bottom: 2px solid var(--soft-red);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-red);
+        }
+
+        .logo-text span {
+            color: var(--primary-red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 10rem;
+            padding-bottom: 8rem;
+            background: linear-gradient(135deg, var(--soft-red) 0%, rgba(255, 255, 255, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: var(--gray);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Projects Gallery */
+        .projects {
+            background-color: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-red);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-content {
+            padding: 1.8rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background-color: var(--soft-red);
+            color: var(--primary-red);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Download Section */
+        .download {
+            background-color: var(--soft-red);
+        }
+
+        .download-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature i {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Quote Section */
+        .quote {
+            background-color: white;
+        }
+
+        .quote-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .quote-form {
+            background-color: var(--soft-red);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(198, 40, 40, 0.3);
+            border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23c62828' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px;
+            padding-right: 3rem;
+        }
+
+        /* Plans Section */
+        .plans {
+            background-color: var(--light);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .plan-card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .plan-card.popular {
+            border-color: var(--primary-red);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-red);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin: 1.5rem 0;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .plan-features li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .plan-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        /* Maintenance Section */
+        .maintenance {
+            background-color: var(--soft-red);
+        }
+
+        .maintenance-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight-box {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            margin: 2rem 0;
+            border-left: 5px solid var(--primary-red);
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        .cta h2:after {
+            background-color: white;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta .btn-secondary {
+            background-color: white;
+            color: var(--primary-red);
+        }
+
+        .cta .btn-secondary:hover {
+            background-color: var(--soft-red);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .dev-credit {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dev-credit .logo-icon {
+            display: inline-flex;
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+            padding: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius);
+            width: 95%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            background-color: var(--primary-red);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .modal-header h3 {
+            margin-bottom: 0;
+            color: white;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--soft-red);
+        }
+
+        .modal-body {
+            padding: 0;
+            height: 70vh;
+        }
+
+        .modal-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            padding: 2rem;
+            background-color: #d1fae5;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .success-message i {
+            font-size: 3rem;
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .quote-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 0;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 98%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .hero-buttons, .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-buttons .btn, .cta-buttons .btn {
+                width: 100%;
+            }
+            
+            .project-buttons {
+                flex-direction: column;
+            }
+            
+            .quote-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                   
+                    <div class="logo-text">Dev <span>Ruby</span></div>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#quote">Orçamento</a></li>
+                    <li><a href="#plans">Planos</a></li>
+                    <li><a href="#maintenance">Manutenção</a></li>
+                    <li><a href="https://wa.me/5511974793895" target="_blank" class="btn btn-small btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Teste, personalize e publique seu site sem complicação</h1>
+                <p>Visualize projetos reais, baixe, teste e peça seu orçamento personalizado. Tudo em um só lugar, sem riscos.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">Ver Projetos</a>
+                    <a href="#quote" class="btn btn-secondary">Pedir Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Gallery -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Projetos Prontos para Testar</h2>
+            <p class="section-subtitle">Escolha um dos nossos modelos, visualize a demo e baixe para testar por conta própria.</p>
+            
+            <div class="projects-grid">
+                <!-- Projeto Casamento -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1511984804822-e16ba72f5840?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Site de Casamento">
+                        <div class="project-badge">Casamento</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Casamento Elegante</h3>
+                        <p>Site completo para casamentos com contador regressivo, RSVP, localização e galeria de fotos.</p>
+                        <div class="project-tags">
+                            <span class="tag">Responsivo</span>
+                            <span class="tag">Moderno</span>
+                            <span class="tag">Single Page</span>
+                        </div>
+                       
+                    </div>
+                </div>
+                
+                <!-- Projeto Festas -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Site de Festas">
+                        <div class="project-badge">Festas</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Festas e Eventos</h3>
+                        <p>Site para organização de festas, eventos corporativos e celebrações especiais.</p>
+                        <div class="project-tags">
+                            <span class="tag">Responsivo</span>
+                            <span class="tag">Galeria</span>
+                            <span class="tag">RSVP</span>
+                        </div>
+                       
+                    </div>
+                </div>
+                
+                <!-- Projeto Portfólio -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Site Portfólio">
+                        <div class="project-badge">Portfólio</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Portfólio Profissional</h3>
+                        <p>Site para profissionais criativos com galeria de projetos, biografia, contato e blog integrado.</p>
+                        <div class="project-tags">
+                            <span class="tag">Portfólio</span>
+                            <span class="tag">Blog</span>
+                            <span class="tag">Elegante</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="container">
+            <div class="download-content">
+                <h2>Baixe e Teste por Conta Própria</h2>
+                <p class="section-subtitle">Você pode baixar os projetos completos, testar em seu computador e personalizar como quiser.</p>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="fas fa-code"></i>
+                        <h3>Código Limpo</h3>
+                        <p>Código organizado, comentado e fácil de entender, mesmo para iniciantes.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-edit"></i>
+                        <h3>Fácil Personalização</h3>
+                        <p>Modifique cores, textos e imagens sem precisar de conhecimento avançado.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Pronto para Publicar</h3>
+                        <p>Estrutura completa para hospedagem imediata após personalização.</p>
+                    </div>
+                    <div style="display:flex; justify-content:center; align-items:center; margin:40px 0;">
+  <a href="https://drive.google.com/drive/folders/113JjAsVC7kQ7xbxKMpn2LCuxV5vJXM4s?usp=sharing" style="text-decoration:none;">
+    <button
+      style="
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        color: #ffffff;
+        border: none;
+        padding: 18px 40px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 15px 30px rgba(255, 65, 108, 0.4);
+        transition: all 0.3s ease;
+      "
+      onmouseover="this.style.transform='scale(1.07)'; this.style.boxShadow='0 20px 40px rgba(255, 65, 108, 0.6)'"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 15px 30px rgba(255, 65, 108, 0.4)'"
+    >
+      ⬇ BAIXE AQUI
+    </button>
+  </a>
+</div>
+
+                </div>
+                
+                <div style="margin-top: 3rem;">
+                    <p><strong>Como funciona:</strong> Baixe o projeto, descompacte, abra o arquivo index.html em seu navegador e comece a testar.</p>
+                    <p><em>Os arquivos de download serão anexados posteriormente ao código.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote" id="quote">
+        <div class="container">
+            <h2>Solicite Seu Orçamento</h2>
+            <p class="section-subtitle">Preencha o formulário abaixo e receba um orçamento personalizado diretamente no WhatsApp.</p>
+            
+            <div class="quote-container">
+                <div>
+                    <h3>Personalize seu projeto</h3>
+                    <p>Conte-nos sobre suas necessidades e receba uma proposta detalhada com valor e prazo de entrega.</p>
+                    <p>Todos os orçamentos são enviados diretamente para o WhatsApp: <strong>+55 11 97479-3895</strong></p>
+                    
+                    <div class="highlight-box">
+                        <h4>Garantia de Satisfação</h4>
+                        <p>Você só paga após aprovar a versão final do projeto. Teste primeiro, só contrate se fizer sentido para você.</p>
+                    </div>
+                </div>
+                
+                <div class="quote-form">
+                    <form id="quoteForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact">E-mail ou WhatsApp</label>
+                            <input type="text" id="contact" class="form-control" required placeholder="exemplo@email.com ou (11) 99999-9999">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project-type">Tipo de Projeto Desejado</label>
+                            <select id="project-type" class="form-control" required>
+                                <option value="" selected disabled>Selecione uma opção</option>
+                                <option value="wedding">Site de Casamento</option>
+                                <option value="party">Site de Festas</option>
+                                <option value="portfolio">Site Portfólio</option>
+                                <option value="business">Site Empresarial</option>
+                                <option value="ecommerce">Loja Virtual</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem (Opcional)</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Descreva brevemente suas necessidades..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Enviar para WhatsApp
+                        </button>
+                    </form>
+                    
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Orçamento solicitado com sucesso!</h3>
+                        <p>Em até 24 horas você receberá uma proposta personalizada no WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans" id="plans">
+        <div class="container">
+            <h2>Planos e Valores</h2>
+            <p class="section-subtitle">Escolha o plano que melhor se adapta às suas necessidades. Todos incluem hospedagem gratuita no GitHub.</p>
+            
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <h3>Básico</h3>
+                    <div class="plan-price">R$29,90<span>/projeto</span></div>
+                    <p>Ideal para sites simples e páginas únicas</p>
+                    
+                    <ul class="plan-features">
+                        <li>Projeto conforme escolhido</li>
+                        <li>Hospedagem gratuita (1 ano)</li>
+                        <li>Código fonte completo</li>
+                        <li>Suporte por whatsapp (15 dias)</li>
+                        <li>Personalização básica nos primeiros 15 dias após a entrega.</li>
+                    </ul>
+                    
+                    <a href="#quote" class="btn btn-secondary">Solicitar</a>
+                </div>
+                
+                <div class="plan-card popular">
+                    <div class="popular-badge">Mais Popular</div>
+                    <h3>Profissional</h3>
+                    <div class="plan-price">R$79,90<span>/projeto</span></div>
+                    <p>Perfeito para negócios e profissionais</p>
+                    
+                    <ul class="plan-features">
+                        <li>Tudo do plano Básico</li>
+                        <li>Hospedagem gratuita (2 anos)</li>
+                        <li>Personalização avançada</li>
+                        <li>Integração com redes sociais</li>
+                        <li>Suporte prioritário (90 dias)</li>
+                    </ul>
+                    
+                    <a href="#quote" class="btn">Escolher Plano</a>
+                </div>
+                
+                <div class="plan-card">
+                    <h3>Premium</h3>
+                    <div class="plan-price">R$149,90<span>/projeto</span></div>
+                    <p>Para quem quer tudo incluso</p>
+                    
+                    <ul class="plan-features">
+                        <li>Tudo do plano Profissional</li>
+                        <li>Hospedagem gratuita (5 a 8 anos)</li>
+                        <li>Design personalizado</li>
+                        <li>Otimização para SEO</li>
+                        
+                        <li>Suporte vitalício</li>
+                    </ul>
+                    
+                    <a href="#quote" class="btn btn-secondary">Solicitar</a>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 4rem;">
+                <h4>Benefício Especial</h4>
+                <p><strong>Para contratos acima de R$100,00:</strong> Seu site fica liberado por <strong>4 anos totalmente gratuito</strong>, sem custo de hospedagem nesse período.</p>
+                <p><strong>Hospedagem inclusa:</strong> Todos os planos incluem hospedagem gratuita via GitHub Pages. Para períodos além do incluído no plano, apenas R$5,00/mês.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance Section -->
+    <section class="maintenance" id="maintenance">
+        <div class="container">
+            <div class="maintenance-content">
+                <h2>Manutenção do Site</h2>
+                <p class="section-subtitle">Transparência total: você decide se precisa ou não de manutenção.</p>
+                
+                <div class="highlight-box">
+                    <h4>Manutenção não é obrigatória</h4>
+                    <p>Seu site continuará funcionando normalmente mesmo sem contratar manutenção. A contratação é opcional e só faz sentido se você precisar de atualizações frequentes.</p>
+                </div>
+                
+                <h3>Como funciona a manutenção:</h3>
+                <ul class="plan-features" style="margin-top: 1.5rem;">
+                    <li>Disponível apenas para clientes com plano de <strong>2 anos ou mais</strong></li>
+                    <li>Direito  <strong>as manutenções</strong> durante o período contratado</li>
+                    <li>Prazo de entrega: <strong>de 2 a 7 dias úteis</strong></li>
+                    <li>Atendimento também aos <strong>sábados, domingos e feriados</strong></li>
+                    <li>Inclui ajustes de texto, imagens e pequenas modificações</li>
+                </ul>
+                
+                <p style="margin-top: 2rem;"><strong>Observação:</strong> Alterações estruturais ou redesign completo não estão incluídos na manutenção e podem exigir um novo orçamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <h2>Você testa primeiro. Só contrata se fizer sentido.</h2>
+            <p>Baixe nossos projetos, teste em seu computador, personalize e só então decida se quer contratar nossos serviços. Sem riscos, sem compromisso antecipado.</p>
+            
+            <div class="cta-buttons">
+                <a href="#download" class="btn">Baixar Projetos</a>
+                <a href="#quote" class="btn btn-secondary">Pedir Orçamento Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Dev Ruby</h4>
+                    <p>Transformamos ideias em sites funcionais, com transparência e qualidade.</p>
+                    <div class="dev-credit">
+                        <div class="logo-icon">R</div>
+                        <p><strong>Desenvolvido por Dev Ruby</strong></p>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#projects">Projetos</a></li>
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#quote">Orçamento</a></li>
+                        <li><a href="#plans">Planos</a></li>
+                        <li><a href="#maintenance">Manutenção</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><i class="fab fa-whatsapp" style="color: #25D366;"></i> 
+                            <a href="https://wa.me/5511974793895" target="_blank">+55 11 97479-3895</a>
+                        </li>
+                        
+                        <li><i class="fas fa-map-marker-alt" style="color: var(--primary-red);"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Dev Ruby. Todos os direitos reservados. Este é um site de demonstração.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <div class="modal" id="demoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Visualização da Demo</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="modal-iframe" id="demoFrame" src="" title="Demo do Projeto"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+            this.innerHTML = document.getElementById('navLinks').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                    document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Demo modal functionality
+        const demoModal = document.getElementById('demoModal');
+        const closeModal = document.getElementById('closeModal');
+        const demoFrame = document.getElementById('demoFrame');
+        
+        // Dicionário de URLs de demonstração
+        const demoURLs = {
+            'wedding': 'https://codepen.io/anon/pen/abRpPvR',
+            'party': 'https://codepen.io/anon/pen/MWpgGQY',
+            'portfolio': 'https://codepen.io/anon/pen/ExeYKQa'
+        };
+        
+        document.querySelectorAll('.view-demo').forEach(button => {
+            button.addEventListener('click', function() {
+                const project = this.getAttribute('data-project');
+                const demoURL = demoURLs[project] || 'about:blank';
+                
+                demoFrame.src = demoURL;
+                demoModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            demoModal.style.display = 'none';
+            demoFrame.src = 'about:blank';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        demoModal.addEventListener('click', (e) => {
+            if (e.target === demoModal) {
+                demoModal.style.display = 'none';
+                demoFrame.src = 'about:blank';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Download project functionality (placeholder)
+        document.querySelectorAll('.download-project').forEach(button => {
+            button.addEventListener('click', function() {
+                const project = this.getAttribute('data-project');
+                
+                // Mensagem informativa sobre os downloads
+                const projectNames = {
+                    'wedding': 'Casamento Elegante',
+                    'party': 'Festas e Eventos',
+                    'portfolio': 'Portfólio Profissional'
+                };
+                
+                alert(`Download do projeto "${projectNames[project]}"\n\nOs arquivos de download serão disponibilizados em breve. Entre em contato pelo WhatsApp para receber os arquivos diretamente.`);
+                
+                // Opcional: Abrir WhatsApp para solicitar o download
+                const message = `Olá! Gostaria de solicitar o download do projeto ${projectNames[project]}.`;
+                const whatsappURL = `https://wa.me/5511974793895?text=${encodeURIComponent(message)}`;
+                window.open(whatsappURL, '_blank');
+            });
+        });
+
+        // Quote form submission to WhatsApp
+        const quoteForm = document.getElementById('quoteForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        quoteForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const contact = document.getElementById('contact').value.trim();
+            const projectType = document.getElementById('project-type').value;
+            const message = document.getElementById('message').value.trim();
+            
+            // Validation
+            if (!name || !contact || !projectType) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // Map project type to readable name
+            const projectTypeNames = {
+                'wedding': 'Site de Casamento',
+                'party': 'Site de Festas',
+                'portfolio': 'Site Portfólio',
+                'business': 'Site Empresarial',
+                'ecommerce': 'Loja Virtual',
+                'other': 'Outro tipo de projeto'
+            };
+            
+            // Construct WhatsApp message
+            let whatsappMessage = `*NOVA SOLICITAÇÃO DE ORÇAMENTO*\n\n`;
+            whatsappMessage += `*Nome:* ${name}\n`;
+            whatsappMessage += `*Contato:* ${contact}\n`;
+            whatsappMessage += `*Tipo de Projeto:* ${projectTypeNames[projectType] || projectType}\n\n`;
+            
+            if (message) {
+                whatsappMessage += `*Mensagem:*\n${message}\n\n`;
+            }
+            
+            whatsappMessage += `_Esta solicitação foi enviada através do site Dev Ruby_`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/5511974793895?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Show success message
+            successMessage.style.display = 'block';
+            quoteForm.reset();
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Hide success message after 8 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 8000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navContainer = document.querySelector('.nav-container');
+            if (window.scrollY > 100) {
+                navContainer.style.boxShadow = '0 4px 12px rgba(198, 40, 40, 0.2)';
+            } else {
+                navContainer.style.boxShadow = 'var(--shadow)';
+            }
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.project-card, .feature, .plan-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.project-card, .feature, .plan-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
