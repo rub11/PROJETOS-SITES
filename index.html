@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Ruby | Sites Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --black: #0a0a0a;
@@ -43,7 +46,10 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 500;
             line-height: 1.2;
@@ -845,20 +851,20 @@
             h1 {
                 font-size: 2.8rem;
             }
-            
+
             h2 {
                 font-size: 2.2rem;
             }
-            
+
             section {
                 padding: 80px 0;
             }
-            
+
             .hero {
                 padding-top: 160px;
                 padding-bottom: 80px;
             }
-            
+
             .quote-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -869,7 +875,7 @@
             header {
                 padding: 20px 0;
             }
-            
+
             .nav-menu {
                 display: none;
                 position: absolute;
@@ -882,61 +888,63 @@
                 border-top: 1px solid rgba(212, 175, 55, 0.1);
                 border-bottom: 1px solid rgba(212, 175, 55, 0.1);
             }
-            
+
             .nav-menu.active {
                 display: flex;
             }
-            
+
             .nav-menu li {
                 margin: 0;
                 text-align: center;
             }
-            
+
             .nav-menu a {
                 display: block;
                 padding: 15px 20px;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
-            
+
             .nav-menu a:last-child {
                 border-bottom: none;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             h1 {
                 font-size: 2.4rem;
             }
-            
+
             h2 {
                 font-size: 2rem;
             }
-            
+
             .projects-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
-            .hero-buttons, .cta-buttons {
+
+            .hero-buttons,
+            .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .hero-buttons .btn, .cta-buttons .btn {
+
+            .hero-buttons .btn,
+            .cta-buttons .btn {
                 width: 100%;
                 max-width: 250px;
             }
-            
+
             .project-buttons {
                 flex-direction: column;
             }
-            
+
             .plans-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .quote-form {
                 padding: 30px;
             }
@@ -946,28 +954,29 @@
             h1 {
                 font-size: 2rem;
             }
-            
+
             h2 {
                 font-size: 1.8rem;
             }
-            
+
             .hero {
                 padding-top: 140px;
                 padding-bottom: 60px;
             }
-            
+
             .container {
                 padding: 0 15px;
             }
-            
-            .project-content, .quote-form {
+
+            .project-content,
+            .quote-form {
                 padding: 20px;
             }
-            
+
             .plan-card {
                 padding: 30px 20px;
             }
-            
+
             .modal-header {
                 padding: 20px;
             }
@@ -975,17 +984,32 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .fade-in {
             animation: fadeIn 0.8s ease forwards;
         }
 
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
 
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -1006,6 +1030,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <header>
@@ -1024,55 +1049,75 @@
                 <li><a href="#plans">Planos</a></li>
                 <li><a href="#maintenance">Manutenção</a></li>
                 <li><a href="https://wa.me/5511974793895" target="_blank" class="btn btn-small btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a></li>
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a></li>
             </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1 class="fade-in">Teste, personalize e publique seu site sem complicação</h1>
-            <p class="hero-subtitle fade-in delay-1">Visualize projetos reais, baixe, teste e peça seu orçamento personalizado. Tudo em um só lugar, sem riscos.</p>
-            <div class="hero-buttons fade-in delay-2">
-                <a href="#projects" class="btn">Ver Projetos</a>
-                <a href="#quote" class="btn btn-gold">Pedir Orçamento</a>
-            </div>
+   <section class="hero">
+    <div class="container">
+        <h1 class="fade-in">
+            Vai organizar um evento?<br>
+            Tenha um site exclusivo, bonito e profissional<br>
+            <strong>pagando apenas uma vez, sem mensalidades.</strong><br>
+            Solicite um orçamento gratuito agora.
+        </h1>
+
+        <p class="hero-subtitle fade-in delay-1">
+            Centralize todas as informações do seu evento em um único site.
+            Visualize projetos reais, teste, personalize do seu jeito
+            e receba um orçamento sob medida, sem compromisso.
+        </p>
+
+        <div class="hero-buttons fade-in delay-2">
+            <a href="#projects" class="btn">
+                Ver Projetos
+            </a>
+            <a href="#quote" class="btn btn-gold">
+                Pedir Orçamento Gratuito
+            </a>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Projects Gallery -->
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="fade-in">Projetos Prontos para Testar</h2>
-            <p class="section-subtitle fade-in delay-1">Escolha um dos nossos modelos, visualize a demo e baixe para testar por conta própria.</p>
-            
+            <p class="section-subtitle fade-in delay-1">Escolha um dos nossos modelos, visualize a demo e baixe para
+                testar por conta própria.</p>
+
             <div class="projects-grid">
                 <!-- Projeto Casamento -->
                 <div class="project-card fade-in delay-1">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Site de Casamento">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+                            alt="Site de Casamento">
                         <div class="project-badge">Casamento</div>
                     </div>
                     <div class="project-content">
                         <h3>Casamento Elegante</h3>
-                        <p>Site completo para casamentos com contador regressivo, RSVP, localização e galeria de fotos.</p>
+                        <p>Site completo para casamentos com contador regressivo, RSVP, localização e galeria de fotos.
+                        </p>
                         <div class="project-tags">
                             <span class="tag">Responsivo</span>
                             <span class="tag">Moderno</span>
                             <span class="tag">Single Page</span>
                         </div>
                         <div class="project-buttons">
-                           
+
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Projeto Festas -->
                 <div class="project-card fade-in delay-2">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Site de Festas">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+                            alt="Site de Festas">
                         <div class="project-badge">Festas</div>
                     </div>
                     <div class="project-content">
@@ -1084,27 +1129,29 @@
                             <span class="tag">RSVP</span>
                         </div>
                         <div class="project-buttons">
-                           
+
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Projeto Portfólio -->
                 <div class="project-card fade-in delay-3">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Site Portfólio">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                            alt="Site Portfólio">
                         <div class="project-badge">Portfólio</div>
                     </div>
                     <div class="project-content">
                         <h3>Portfólio Profissional</h3>
-                        <p>Site para profissionais criativos com galeria de projetos, biografia, contato e blog integrado.</p>
+                        <p>Site para profissionais criativos com galeria de projetos, biografia, contato e blog
+                            integrado.</p>
                         <div class="project-tags">
                             <span class="tag">Portfólio</span>
                             <span class="tag">Blog</span>
                             <span class="tag">Elegante</span>
                         </div>
                         <div class="project-buttons">
-                       
+
                         </div>
                     </div>
                 </div>
@@ -1119,28 +1166,29 @@
         <div class="container">
             <div class="download-content">
                 <h2 class="fade-in">Baixe e Teste por Conta Própria</h2>
-                <p class="section-subtitle fade-in delay-1">Você pode baixar os projetos completos, testar em seu computador e personalizar como quiser.</p>
-                
+                <p class="section-subtitle fade-in delay-1">Você pode baixar os projetos completos, testar em seu
+                    computador e personalizar como quiser.</p>
+
                 <div class="features-grid">
                     <div class="feature fade-in delay-1">
                         <i class="fas fa-code"></i>
                         <h3>Código Limpo</h3>
                         <p>Código organizado, comentado e fácil de entender, mesmo para iniciantes.</p>
                     </div>
-                    
+
                     <div class="feature fade-in delay-2">
                         <i class="fas fa-edit"></i>
                         <h3>Fácil Personalização</h3>
                         <p>Modifique cores, textos e imagens sem precisar de conhecimento avançado.</p>
                     </div>
-                    
+
                     <div class="feature fade-in delay-3">
                         <i class="fas fa-rocket"></i>
                         <h3>Pronto para Publicar</h3>
                         <p>Estrutura completa para hospedagem imediata após personalização.</p>
                     </div>
                 </div>
-                
+
                 <div class="video-container fade-in">
                     <h3>COMO BAIXAR PARA VER AS PREVIAS DOS PROJETOS?</h3>
                     <video width="100%" controls>
@@ -1148,7 +1196,7 @@
                         Seu navegador não suporta a tag de vídeo.
                     </video>
                 </div>
-                
+
                 <div class="download-special fade-in">
                     <a href="baixar projeto/index.html" target="_blank">
                         <button class="download-special-btn">
@@ -1156,9 +1204,10 @@
                         </button>
                     </a>
                 </div>
-                
+
                 <div class="download-note fade-in">
-                    <p><strong>Como funciona:</strong> Baixe o projeto, descompacte, abra o arquivo index.html em seu navegador e comece a testar.</p>
+                    <p><strong>Como funciona:</strong> Baixe o projeto, descompacte, abra o arquivo index.html em seu
+                        navegador e comece a testar.</p>
                     <p><em>Os arquivos de download serão anexados posteriormente ao código.</em></p>
                 </div>
             </div>
@@ -1171,32 +1220,37 @@
     <section class="quote" id="quote">
         <div class="container">
             <h2 class="fade-in">Solicite Seu Orçamento</h2>
-            <p class="section-subtitle fade-in delay-1">Preencha o formulário abaixo e receba um orçamento personalizado diretamente no WhatsApp.</p>
-            
+            <p class="section-subtitle fade-in delay-1">Preencha o formulário abaixo e receba um orçamento personalizado
+                diretamente no WhatsApp.</p>
+
             <div class="quote-container">
                 <div class="fade-in delay-1">
                     <h3>Personalize seu projeto</h3>
-                    <p>Conte-nos sobre suas necessidades e receba uma proposta detalhada com valor e prazo de entrega.</p>
-                    <p>Todos os orçamentos são enviados diretamente para o WhatsApp: <strong>+55 11 97479-3895</strong></p>
-                    
+                    <p>Conte-nos sobre suas necessidades e receba uma proposta detalhada com valor e prazo de entrega.
+                    </p>
+                    <p>Todos os orçamentos são enviados diretamente para o WhatsApp: <strong>+55 11 97479-3895</strong>
+                    </p>
+
                     <div class="highlight-box">
                         <h4>Garantia de Satisfação</h4>
-                        <p>Você só paga após aprovar a versão final do projeto. Teste primeiro, só contrate se fizer sentido para você.</p>
+                        <p>Você só paga após aprovar a versão final do projeto. Teste primeiro, só contrate se fizer
+                            sentido para você.</p>
                     </div>
                 </div>
-                
+
                 <div class="quote-form fade-in delay-2">
                     <form id="quoteForm">
                         <div class="form-group">
                             <label for="name">Nome Completo</label>
                             <input type="text" id="name" class="form-control" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="contact">E-mail ou WhatsApp</label>
-                            <input type="text" id="contact" class="form-control" required placeholder="exemplo@email.com ou (11) 99999-9999">
+                            <input type="text" id="contact" class="form-control" required
+                                placeholder="exemplo@email.com ou (11) 99999-9999">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="project-type">Tipo de Projeto Desejado</label>
                             <select id="project-type" class="form-control" required>
@@ -1208,17 +1262,18 @@
                                 <option value="other">Outro</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message">Mensagem (Opcional)</label>
-                            <textarea id="message" class="form-control" rows="4" placeholder="Descreva brevemente suas necessidades..."></textarea>
+                            <textarea id="message" class="form-control" rows="4"
+                                placeholder="Descreva brevemente suas necessidades..."></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-whatsapp">
                             <i class="fab fa-whatsapp"></i> Enviar para WhatsApp
                         </button>
                     </form>
-                    
+
                     <div class="success-message" id="successMessage">
                         <i class="fas fa-check-circle"></i>
                         <h3>Orçamento solicitado com sucesso!</h3>
@@ -1235,30 +1290,31 @@
     <section class="plans" id="plans">
         <div class="container">
             <h2 class="fade-in">Planos e Valores</h2>
-            <p class="section-subtitle fade-in delay-1">Escolha o plano que melhor se adapta às suas necessidades. Todos incluem hospedagem gratuita no GitHub.</p>
-            
+            <p class="section-subtitle fade-in delay-1">Escolha o plano que melhor se adapta às suas necessidades. Todos
+                incluem hospedagem gratuita no GitHub.</p>
+
             <div class="plans-grid">
                 <div class="plan-card fade-in delay-1">
                     <h3>Básico</h3>
                     <div class="plan-price">R$29,90<span>/projeto</span></div>
                     <p>Ideal para sites simples e páginas únicas</p>
-                    
+
                     <ul class="plan-features">
                         <li>Projeto conforme escolhido</li>
                         <li>Hospedagem gratuita (6 meses)</li>
                         <li>Suporte por E-mail</li>
                         <li>Personalização básica nos primeiros 30 dias após a entrega do projeto.</li>
                     </ul>
-                    
+
                     <a href="#quote" class="btn">Solicitar</a>
                 </div>
-                
+
                 <div class="plan-card popular fade-in delay-2">
                     <div class="popular-badge">Mais Popular</div>
                     <h3>Profissional</h3>
                     <div class="plan-price">R$99,90<span>/projeto</span></div>
                     <p>Perfeito para negócios e profissionais</p>
-                    
+
                     <ul class="plan-features">
                         <li>Tudo do plano Básico</li>
                         <li>Hospedagem gratuita (2 anos)</li>
@@ -1267,15 +1323,15 @@
                         <li>Suporte prioritário (90 dias)</li>
                         <li>Personalização básica nos primeiros 90 dias após a entrega do projeto.</li>
                     </ul>
-                    
+
                     <a href="#quote" class="btn btn-gold">Escolher Plano</a>
                 </div>
-                
+
                 <div class="plan-card fade-in delay-3">
                     <h3>Premium</h3>
                     <div class="plan-price">R$119,90<span>/projeto</span></div>
                     <p>Para quem quer tudo incluso</p>
-                    
+
                     <ul class="plan-features">
                         <li>Tudo do plano Profissional</li>
                         <li>Hospedagem gratuita por até 4 anos</li>
@@ -1284,15 +1340,17 @@
                         <li>Suporte vitalício</li>
                         <li>Personalização Total após a entrega do projeto.</li>
                     </ul>
-                    
+
                     <a href="#quote" class="btn">Solicitar</a>
                 </div>
             </div>
-            
+
             <div class="highlight-box fade-in" style="margin-top: 40px;">
                 <h4>Benefício Especial</h4>
-                <p><strong>Para contratos acima de R$100,00:</strong> Seu site fica liberado por <strong>4 anos totalmente gratuito</strong>, sem custo de hospedagem nesse período.</p>
-                <p><strong>Hospedagem inclusa:</strong> Todos os planos incluem hospedagem gratuita via GitHub Pages. Para períodos além do incluído no plano, apenas R$5,00/mês.</p>
+                <p><strong>Para contratos acima de R$100,00:</strong> Seu site fica liberado por <strong>4 anos
+                        totalmente gratuito</strong>, sem custo de hospedagem nesse período.</p>
+                <p><strong>Hospedagem inclusa:</strong> Todos os planos incluem hospedagem gratuita via GitHub Pages.
+                    Para períodos além do incluído no plano, apenas R$5,00/mês.</p>
             </div>
         </div>
     </section>
@@ -1304,13 +1362,15 @@
         <div class="container">
             <div class="maintenance-content">
                 <h2 class="fade-in">Manutenção do Site</h2>
-                <p class="section-subtitle fade-in delay-1">Transparência total: você decide se precisa ou não de manutenção.</p>
-                
+                <p class="section-subtitle fade-in delay-1">Transparência total: você decide se precisa ou não de
+                    manutenção.</p>
+
                 <div class="highlight-box fade-in delay-2">
                     <h4>Manutenção não é obrigatória</h4>
-                    <p>Seu site continuará funcionando normalmente mesmo sem contratar manutenção. A contratação é opcional e só faz sentido se você precisar de atualizações frequentes.</p>
+                    <p>Seu site continuará funcionando normalmente mesmo sem contratar manutenção. A contratação é
+                        opcional e só faz sentido se você precisar de atualizações frequentes.</p>
                 </div>
-                
+
                 <h3 class="fade-in delay-2">Como funciona a manutenção:</h3>
                 <ul class="plan-features fade-in delay-2" style="margin-top: 1.5rem;">
                     <li>Disponível apenas para clientes com plano de <strong>2 anos ou mais</strong></li>
@@ -1319,8 +1379,9 @@
                     <li>Atendimento também aos <strong>sábados, domingos e feriados</strong></li>
                     <li>Inclui ajustes de texto, imagens e pequenas modificações</li>
                 </ul>
-                
-                <p class="fade-in delay-2" style="margin-top: 2rem;"><strong>Observação:</strong> Alterações estruturais ou redesign completo não estão incluídos na manutenção e podem exigir um novo orçamento.</p>
+
+                <p class="fade-in delay-2" style="margin-top: 2rem;"><strong>Observação:</strong> Alterações estruturais
+                    ou redesign completo não estão incluídos na manutenção e podem exigir um novo orçamento.</p>
             </div>
         </div>
     </section>
@@ -1329,8 +1390,9 @@
     <section class="cta" id="cta">
         <div class="container">
             <h2 class="fade-in">Você testa primeiro. Só contrata se fizer sentido.</h2>
-            <p class="fade-in delay-1">Baixe nossos projetos, teste em seu computador, personalize e só então decida se quer contratar nossos serviços. Sem riscos, sem compromisso antecipado.</p>
-            
+            <p class="fade-in delay-1">Baixe nossos projetos, teste em seu computador, personalize e só então decida se
+                quer contratar nossos serviços. Sem riscos, sem compromisso antecipado.</p>
+
             <div class="cta-buttons fade-in delay-2">
                 <a href="#download" class="btn">Baixar Projetos</a>
                 <a href="#quote" class="btn btn-secondary">Pedir Orçamento Agora</a>
@@ -1350,7 +1412,7 @@
                         <p><strong>Desenvolvido por Dev Ruby</strong></p>
                     </div>
                 </div>
-                
+
                 <div class="footer-column fade-in delay-1">
                     <h4>Links Rápidos</h4>
                     <ul class="footer-links">
@@ -1361,18 +1423,18 @@
                         <li><a href="#maintenance">Manutenção</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column fade-in delay-2">
                     <h4>Contato</h4>
                     <ul class="footer-links">
-                        <li><i class="fab fa-whatsapp" style="color: #25D366;"></i> 
+                        <li><i class="fab fa-whatsapp" style="color: #25D366;"></i>
                             <a href="https://wa.me/5511974793895" target="_blank">+55 11 97479-3895</a>
                         </li>
                         <li><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> São Paulo, SP</li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="copyright fade-in">
                 <p>© 2023 Dev Ruby. Todos os direitos reservados.</p>
             </div>
@@ -1396,11 +1458,11 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', function() {
+
+        mobileMenuBtn.addEventListener('click', function () {
             navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
         });
 
@@ -1414,12 +1476,12 @@
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -1434,31 +1496,31 @@
         const demoModal = document.getElementById('demoModal');
         const closeModal = document.getElementById('closeModal');
         const demoFrame = document.getElementById('demoFrame');
-        
+
         // Dicionário de URLs de demonstração
         const demoURLs = {
             'wedding': 'https://codepen.io/anon/pen/abRpPvR',
             'party': 'https://codepen.io/anon/pen/MWpgGQY',
             'portfolio': 'https://codepen.io/anon/pen/ExeYKQa'
         };
-        
+
         document.querySelectorAll('.view-demo').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const project = this.getAttribute('data-project');
                 const demoURL = demoURLs[project] || 'about:blank';
-                
+
                 demoFrame.src = demoURL;
                 demoModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             });
         });
-        
+
         closeModal.addEventListener('click', () => {
             demoModal.style.display = 'none';
             demoFrame.src = 'about:blank';
             document.body.style.overflow = 'auto';
         });
-        
+
         // Close modal when clicking outside
         demoModal.addEventListener('click', (e) => {
             if (e.target === demoModal) {
@@ -1470,18 +1532,18 @@
 
         // Download project functionality
         document.querySelectorAll('.download-project').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const project = this.getAttribute('data-project');
-                
+
                 // Mensagem informativa sobre os downloads
                 const projectNames = {
                     'wedding': 'Casamento Elegante',
                     'party': 'Festas e Eventos',
                     'portfolio': 'Portfólio Profissional'
                 };
-                
+
                 alert(`Download do projeto "${projectNames[project]}"\n\nOs arquivos de download serão disponibilizados em breve. Entre em contato pelo WhatsApp para receber os arquivos diretamente.`);
-                
+
                 // Opcional: Abrir WhatsApp para solicitar o download
                 const message = `Olá! Gostaria de solicitar o download do projeto ${projectNames[project]}.`;
                 const whatsappURL = `https://wa.me/5511974793895?text=${encodeURIComponent(message)}`;
@@ -1492,22 +1554,22 @@
         // Quote form submission to WhatsApp
         const quoteForm = document.getElementById('quoteForm');
         const successMessage = document.getElementById('successMessage');
-        
-        quoteForm.addEventListener('submit', function(e) {
+
+        quoteForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Get form values
             const name = document.getElementById('name').value.trim();
             const contact = document.getElementById('contact').value.trim();
             const projectType = document.getElementById('project-type').value;
             const message = document.getElementById('message').value.trim();
-            
+
             // Validation
             if (!name || !contact || !projectType) {
                 alert('Por favor, preencha todos os campos obrigatórios.');
                 return;
             }
-            
+
             // Map project type to readable name
             const projectTypeNames = {
                 'wedding': 'Site de Casamento',
@@ -1517,35 +1579,35 @@
                 'ecommerce': 'Loja Virtual',
                 'other': 'Outro tipo de projeto'
             };
-            
+
             // Construct WhatsApp message
             let whatsappMessage = `*NOVA SOLICITAÇÃO DE ORÇAMENTO*\n\n`;
             whatsappMessage += `*Nome:* ${name}\n`;
             whatsappMessage += `*Contato:* ${contact}\n`;
             whatsappMessage += `*Tipo de Projeto:* ${projectTypeNames[projectType] || projectType}\n\n`;
-            
+
             if (message) {
                 whatsappMessage += `*Mensagem:*\n${message}\n\n`;
             }
-            
+
             whatsappMessage += `_Esta solicitação foi enviada através do site Dev Ruby_`;
-            
+
             // Encode message for URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            
+
             // Create WhatsApp URL
             const whatsappURL = `https://wa.me/5511974793895?text=${encodedMessage}`;
-            
+
             // Open WhatsApp
             window.open(whatsappURL, '_blank');
-            
+
             // Show success message
             successMessage.style.display = 'block';
             quoteForm.reset();
-            
+
             // Scroll to success message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
+
             // Hide success message after 8 seconds
             setTimeout(() => {
                 successMessage.style.display = 'none';
@@ -1553,7 +1615,7 @@
         });
 
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
                 header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
@@ -1565,28 +1627,29 @@
         // Animate elements on scroll
         function animateOnScroll() {
             const elements = document.querySelectorAll('.project-card, .feature, .plan-card, .highlight-box');
-            
+
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const screenPosition = window.innerHeight / 1.2;
-                
+
                 if (elementPosition < screenPosition) {
                     element.style.opacity = '1';
                     element.style.transform = 'translateY(0)';
                 }
             });
         }
-        
+
         // Set initial state for animated elements
         document.querySelectorAll('.project-card, .feature, .plan-card, .highlight-box').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         });
-        
+
         // Run on load and scroll
         window.addEventListener('load', animateOnScroll);
         window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
+
 </html>
